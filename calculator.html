@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-1">
+            <p class="js-display"></p>
+            <p>
+                <button class="" onclick="upadateCalc('1')">1</button>
+                <button class="" onclick="upadateCalc('2')">2</button>
+                <button class="" onclick="upadateCalc('3')">3</button>
+                <button class="orange" onclick="upadateCalc('+')">+</button>
+            </p>
+            <p>
+                <button class="" onclick="upadateCalc('4')">4</button>
+                <button class="" onclick="upadateCalc('5')">5</button>
+                <button class="" onclick="upadateCalc('6')">6</button>
+                <button class="orange" onclick="upadateCalc('-')">-</button>
+            </p>
+            <p>
+                <button class="" onclick="upadateCalc('7')">7</button>
+                <button class="" onclick="upadateCalc('8')">8</button>
+                <button class="" onclick="upadateCalc('9')">9</button>
+                <button class="orange" onclick="upadateCalc('*')">*</button>
+            </p>
+            <p>
+                <button class="" onclick="upadateCalc('0')">0</button>
+                <button class="" onclick="upadateCalc('.')">.</button>
+        
+                <button class="" onclick="
+                    calculation=eval(calculation);
+                    display(calculation);
+                    localStorage.setItem('calculation',calculation);
+                ">=</button>
+        
+                <button class="orange" onclick="upadateCalc('/')">/</button>
+            </p>
+            <p>
+                <button class="clear" onclick="
+                    calculation='';
+                    display(calculation);
+                    localStorage.removeItem('calculation');
+                    ">clear</button>
+            </p>
+           </div>
+    </div>
+   
+    
+
+    <script>
+        let calculation=localStorage.getItem('calculation')||'';
+        document.querySelector('.js-display').innerHTML=calculation;
+
+
+        function upadateCalc(val){
+            calculation +=val;
+            display(calculation);
+
+            localStorage.setItem('calculation',calculation);
+        }
+
+        function display(value){
+            document.querySelector('.js-display').innerHTML=value;
+        }
+
+    </script>
+</body>
+</html>
